@@ -1,1 +1,13 @@
 <h1>HELLO - Have you got it right?</h1>
+<%= 1 + 1 %> <br />
+
+<% target = "world" %>
+<%= "hello #{target}" %> <br />
+
+<% @array.each do |n| %>
+<%= n %><br />
+<% end %>
+
+<br />
+
+<%= link_to('Index page', {:action => 'index'}) %>
