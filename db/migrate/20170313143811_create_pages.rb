@@ -8,6 +8,7 @@ class CreatePages < ActiveRecord::Migration[5.0]
       t.boolean "visible"
       t.timestamps
     end
+    add_index("pages", "name")
   end
 
   def down
