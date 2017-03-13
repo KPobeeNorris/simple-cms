@@ -28,30 +28,31 @@ ActiveRecord::Schema.define(version: 20170313143819) do
     t.string   "name"
     t.integer  "permalink"
     t.integer  "position"
-    t.boolean  "visible"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_pages_on_name", using: :btree
+    t.boolean  "visible",    default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["permalink"], name: "index_pages_on_permalink", using: :btree
+    t.index ["subject_id"], name: "index_pages_on_subject_id", using: :btree
   end
 
   create_table "sections", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "page_id"
     t.string   "name"
     t.integer  "position"
-    t.boolean  "visible"
+    t.boolean  "visible",                    default: false
     t.string   "content_type"
     t.text     "content",      limit: 65535
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.index ["name"], name: "index_sections_on_name", using: :btree
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.index ["page_id"], name: "index_sections_on_page_id", using: :btree
   end
 
   create_table "subjects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.integer  "position"
-    t.boolean  "visible"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "visible",    default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
 end
