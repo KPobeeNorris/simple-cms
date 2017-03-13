@@ -1,4 +1,6 @@
 <h1>INDEX - Have you got it right?</h1>
 
 <a href="/demo/hello">Hello from page 1</a><br />
-<%= link_to('Hello from page 2', {:action => 'hello'}) %>
+<%= link_to('Hello from page 2', {:action => 'hello'}) %><br />
+
+<%= link_to('Hello with params', {:action => 'hello', :page => 5, :id => 20}) %><br />
