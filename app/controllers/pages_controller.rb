@@ -14,7 +14,6 @@ class PagesController < ApplicationController
 
   def create
     @page = Page.new(page_params)
-    puts @page.name
     if @page.save
       flash[:notice] = "Page successfully created"
       redirect_to(pages_path)
