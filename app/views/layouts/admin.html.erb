@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Simple Cms: <%= @page_title || "Admin Area" %></title>
-    <style>
-    span.status { display: block; width: 10px; height: 10px; margin: 0.25em auto; padding: 0; border: 1px solid #000000;  }
-    span.status.true { background: green; color: green }
-    span.status.false { background: red; color: red }
-    </style>
-  </head>
+<head>
+  <title>Simple Cms: <%= @page_title || "Admin Area" %></title>
+  <%= stylesheet_link_tag('admin', :media => 'all') %>
+</head>
+<body>
 
-  <body>
+  <div id="header">
+    <h1>Simple CMS Admin</h1>
+  </div>
 
+  <div id="main">
     <% if !flash[:notice].blank?%>
-      <div class="notice">
-        <%= flash[:notice] %>
-      </div>
-      <% end %>
+    <div class="notice">
+      <%= flash[:notice] %>
+    </div>
+    <% end %>
 
-    <%= yield %>
-  </body>
+    <div id="content">
+      <%= yield %>
+    </div>
+  </div>
+
+  <div id="footer">
+    <p>Congrats on getting this far!</p>
+  </div>
+
+</body>
 </html>
