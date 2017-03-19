@@ -8,5 +8,7 @@ class Section < ApplicationRecord
   scope :invisible, lambda {where(:visible => false)}
   scope :sorted, lambda {order("position ASC")}
   scope :newest_first, lambda{order("created_at DESC")}
-  
+
+  validates_presence_of :name
+
 end
