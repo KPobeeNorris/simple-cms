@@ -9,6 +9,11 @@ class Section < ApplicationRecord
   scope :sorted, lambda {order("position ASC")}
   scope :newest_first, lambda{order("created_at DESC")}
 
+  CONTENT_TYPES = ['text', 'HTML']
+
   validates_presence_of :name
+  validates_lenth_of :name, :maximum => 255
+  validates_inclusion_of :content_type, :in => CONTENT_TYPES, :message => "Must be one of: #{CONTENT_TYPES.join(', ')}"
+  validates_presence_of :content
 
 end
