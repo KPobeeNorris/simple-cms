@@ -2,6 +2,11 @@ Rails.application.routes.draw do
 
   root 'demo#index'
 
+  get 'access/menu'
+  get 'access/login'
+  post 'access/attempt_login'
+  get 'access/logout'
+
   resources :subjects do
     member do
       get :delete
@@ -19,6 +24,8 @@ Rails.application.routes.draw do
       get :delete
     end
   end
+
+
 
   get 'demo/escape_output'
   get 'demo/index'
