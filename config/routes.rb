@@ -26,6 +26,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :admin_users do
+    member do
+      get :delete
+    end
+  end
+
 
 
   get 'demo/escape_output'
