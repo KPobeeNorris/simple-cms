@@ -7,9 +7,17 @@ class AdminUsersController < ApplicationController
   end
 
   def new
+    @admin_user = AdminUser.new
   end
 
   def create
+    @admin_user = AdminUser.new(admin_user_params)
+    if @admin_user.save
+      flash[:notice] = "Admin user successfully created"
+      redirect_to(admin_users_path)
+    else
+      render('new')
+    end
   end
 
   def edit
@@ -26,7 +34,13 @@ class AdminUsersController < ApplicationController
     @admin_user = AdminUser.find(params[:id])
     @admin_user.destroy
     flash[:notice] = "#{@admin_user.name} successfully destroyed"
-    redirect_to(admin_user_path)
+    redirect_to(admin_users_path)
+  end
+
+  private
+
+  def admin_user_params
+    params.require(:admin_user).permit(:first_name, :last_name, :username, :email, :password_digest)
   end
 
 end
