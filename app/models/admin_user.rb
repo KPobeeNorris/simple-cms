@@ -26,7 +26,7 @@ class AdminUser < ApplicationRecord
   validate :no_new_users_on_monday, :on => :create
 
   def name
-    puts :first_name + " " + :last_name
+    # puts "#{admin_user.first_name} #{admin_user.last_name}"
   end
 
   private
