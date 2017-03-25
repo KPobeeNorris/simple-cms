@@ -5,6 +5,7 @@ class AccessController < ApplicationController
   before_action :confirm_logged_in, :except => [:login, :attempt_login, :logout]
 
   def menu
+    @username = session[:username]
   end
 
   def login
@@ -19,6 +20,7 @@ class AccessController < ApplicationController
     end
     if authorised_user
       session[:user_id] = authorised_user.id
+      session[:username] = authorised_user.username
       flash[:notice] = "You are now logged in"
       redirect_to(admin_path)
     else
@@ -29,6 +31,7 @@ class AccessController < ApplicationController
 
   def logout
     session[:user_id] = nil
+    session[:username] = nil
     flash[:notice] = "User logged out"
     redirect_to(access_login_path)
   end
