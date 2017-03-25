@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Simple Cms: <%= " | #{@page_title} if @page_title" %></title>
-  <%= stylesheet_link_tag('application', :media => 'all') %>
-</head>
-<body>
+  <head>
+    <title>Simple CMS<%= " | #{@page_title}" if @page_title %></title>
+    <%= stylesheet_link_tag('application', :media => 'all') %>
+  </head>
+  <body>
 
-  <div id="header">
-    <h1>Simple CMS</h1>
-  </div>
-
-  <div id="main">
-
-    <div id="content">
-      <%= yield %>
+    <div id="header">
+      <h1>Simple CMS</h1>
     </div>
-    <div class="clear"></div>
-  </div>
 
-  <div id="footer">
-    <p>Congrats on getting this far!</p>
-  </div>
+    <div id="main">
 
-</body>
+      <div id="navigation">
+        <%= render(:partial => 'layouts/navigation', :locals => { :subjects => @subjects} ) %>
+      </div>
+
+      <div id="content">
+        <%= yield %>
+      </div>
+      <div class="clear"></div>
+
+    </div>
+
+    <div id="footer">
+      <p>Congrats on getting this far!</p>
+    </div>
+
+  </body>
 </html>
