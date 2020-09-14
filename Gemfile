@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.8'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'acts_as_list', '~> 0.7.5'
+gem 'acts_as_list', '~> 1.0.2'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
